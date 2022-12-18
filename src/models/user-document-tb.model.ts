@@ -1,0 +1,43 @@
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {AppUserTb} from './app-user-tb.model';
+
+@model()
+export class UserDocumentTb extends Entity {
+  @property({
+    type: 'number',
+    id: true,
+    generated: true,
+  })
+  id?: number;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  document: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  placeExpedition: string;
+
+  @property({
+    type: 'date',
+    required: true,
+  })
+  dateExpedition: string;
+
+  @belongsTo(() => AppUserTb)
+  appUserTbId: number;
+
+  constructor(data?: Partial<UserDocumentTb>) {
+    super(data);
+  }
+}
+
+export interface UserDocumentTbRelations {
+  // describe navigational properties here
+}
+
+export type UserDocumentTbWithRelations = UserDocumentTb & UserDocumentTbRelations;
