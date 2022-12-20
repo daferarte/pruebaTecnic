@@ -1,5 +1,6 @@
 import {Entity, model, property, hasOne} from '@loopback/repository';
 import {UserDocumentTb} from './user-document-tb.model';
+import {ContactInfoTb} from './contact-info-tb.model';
 
 @model()
 export class AppUserTb extends Entity {
@@ -66,6 +67,9 @@ export class AppUserTb extends Entity {
 
   @hasOne(() => UserDocumentTb)
   userDocumentTb: UserDocumentTb;
+
+  @hasOne(() => ContactInfoTb)
+  contactInfoTb: ContactInfoTb;
 
   constructor(data?: Partial<AppUserTb>) {
     super(data);
