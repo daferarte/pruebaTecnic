@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {UserDocumentTb} from './user-document-tb.model';
 
 @model()
 export class TypeDocumentTb extends Entity {
@@ -15,6 +16,8 @@ export class TypeDocumentTb extends Entity {
   })
   nameTypeDocument: string;
 
+  @hasMany(() => UserDocumentTb)
+  userDocumentTbs: UserDocumentTb[];
 
   constructor(data?: Partial<TypeDocumentTb>) {
     super(data);

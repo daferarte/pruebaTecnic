@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {ContactInfoTb} from './contact-info-tb.model';
 
 @model()
 export class CountryTb extends Entity {
@@ -21,6 +22,8 @@ export class CountryTb extends Entity {
   })
   countryName: string;
 
+  @hasMany(() => ContactInfoTb)
+  contactInfoTbs: ContactInfoTb[];
 
   constructor(data?: Partial<CountryTb>) {
     super(data);
